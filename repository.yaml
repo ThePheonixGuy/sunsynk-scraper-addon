@@ -1,4 +1,4 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
-name: Example Home Assistant add-on repository
-url: 'https://github.com/home-assistant/addons-example'
-maintainer: Awesome Maintainer <awesome@example.com>
+name: Sunsynk Scraper Addon
+url: 'https://github.com/ThePheonixGuy/sunsynk-scraper-addon'
+maintainer: ThePheonixGuy <james@thephoenixguy.dev>
