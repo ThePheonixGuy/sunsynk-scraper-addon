@@ -3,12 +3,12 @@ FROM $BUILD_FROM
 
 RUN pip3 install --no-cache-dir --disable-pip-version-check paho-mqtt~=1.6.1 requests~=2.28.1
 
-WORKDIR /data
+WORKDIR /app
 
 COPY . ./
 
 RUN ls
 
-RUN chmod a+x /data/run.sh
+RUN chmod a+x /app/run.sh
 
-CMD [ "/data/run.sh" ]
+CMD [ "/app/run.sh" ]

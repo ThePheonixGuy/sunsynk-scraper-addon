@@ -97,7 +97,7 @@ def publish_state_updates(mqttClient, energy_data, power_data, sensors):
 
 
 def initialise_configuration_from_options():
-    with open('options.json', 'r') as f:
+    with open('/data/options.json', 'r') as f:
         options = json.load(f)
         logging.debug("Got Options: ")
         logging.debug(json.dumps(options, indent=4))
