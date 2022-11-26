@@ -48,7 +48,7 @@ async def setup_mqtt():
 
 def setup_logging():
     loglevel = logging.DEBUG if configuration.DEBUG_LOGGING else logging.INFO
-    logging.basicConfig(level=loglevel, format='%(asctime)s | %(levelname)s | %(message)s')
+    logging.basicConfig(level=loglevel, format='%(asctime)s | %(levelname)s | %(message)s', force=True)
 
 
 def generate_sensors():
@@ -111,6 +111,7 @@ async def main():
         logging.info("Startup")
 
         initialise_configuration_from_options()
+        setup_logging()
 
         delete = False
         data_ingest_service = DataIngestService()
