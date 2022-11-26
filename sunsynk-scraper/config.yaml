@@ -1,8 +1,8 @@
 name: "Sunsynk Scraper"
 description: "Scrapes the SunSynk / inteless API for data on your solar setup!"
-version: "0.2.0"
+version: "0.2.4"
 slug: "sunsynk-scraper"
-url: "https://github.com/home-assistant/addons-example/tree/main/example"
+url: "https://github.com/ThePheonixGuy/sunsynk-scraper-addon/tree/main/sunsynk-scraper"
 init: false
 arch:
   - aarch64
@@ -15,7 +15,25 @@ services:
 map:
   - share:rw
 options:
-  message: "Hello world..."
+  mqtt_username: "mqtt"
+  mqtt_password: null
+  mqtt_host: "core-mosquitto"
+  mqtt_port: 1883
+  sunsynk_email: null
+  sunsynk_password: null
+  debug_logging: false
+  update_interval: 60
+  battery_discharge_rate: 2.5
+  battery_min_state_of_charge: 15
 schema:
-  message: "str?"
-#image: "ghcr.io/thepheonixguy/{arch}-addon-sunsynk-scraper"
+  mqtt_username: str
+  mqtt_password: str
+  mqtt_host: str?
+  mqtt_port: int?
+  sunsynk_email: str
+  sunsynk_password: str
+  debug_logging: bool?
+  update_interval: int(30,300)
+  battery_discharge_rate: float(0.1,100)
+  battery_min_state_of_charge: int(1,100)
+image: "ghcr.io/thepheonixguy/{arch}-addon-sunsynk-scraper"
