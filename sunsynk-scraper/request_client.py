@@ -48,10 +48,10 @@ class RequestClient():
         data_response = r.json()
         plant_id_and_pac = data_response['data']['infos']
         for d in plant_id_and_pac:
-            logging.info(d)
+            logging.debug(d)
             target_plant_id = d['id']
-            logging.info('Your plant id is: ' + str(target_plant_id))
-            logging.info('****************************************************')
+            logging.debug('Your plant id is: ' + str(target_plant_id))
+            logging.debug('****************************************************')
             return target_plant_id
 
     def get(self, path, is_retry=False):
