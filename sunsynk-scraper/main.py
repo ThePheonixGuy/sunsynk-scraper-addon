@@ -1,10 +1,14 @@
 import asyncio
+import json
 import logging
+
 import configuration
 import configuration as config
+import credentials
 import mqtt_integration as mqtt
 from models import RuntimeSensor, PowerSensor, BatterySensor, EnergySensor, BinarySensor
 from request_client import DataIngestService
+
 
 def handle_charge_button_press():
     pass
@@ -92,10 +96,22 @@ def publish_state_updates(mqttClient, energy_data, power_data, sensors):
             sensor.publish_state(mqttClient, data)
 
 
+def initialise_configuration_from_options():
+    with open('options.json', 'r') as f:
+        options = json.load(f)
+        logging.debug("Got Options: ")
+        logging.debug(json.dumps(options, indent=4))
+        config.set_values_from_options(options)
+        credentials.set_values_from_options(options)
+
+
 async def main():
     try:
         setup_logging()
         logging.info("Startup")
+
+        initialise_configuration_from_options()
+
         delete = False
         data_ingest_service = DataIngestService()
         mqttClient = await setup_mqtt()
@@ -118,7 +134,7 @@ async def main():
                     continue
                 publish_state_updates(mqttClient, energy_data, power_data, sensors)
                 logging.info("Published data to Home Assistant")
-                await asyncio.sleep(config.API_REFRESH_TIMEOUT)
+                await asyncio.sleep(config.UPDATE_INTERVAL)
     except Exception as e:
         logging.error("Error occurred: ", e, exc_info=True)
     finally:
