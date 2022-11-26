@@ -11,4 +11,4 @@ RUN ls
 
 RUN chmod a+x /data/run.sh
 
-CMD [ "/app/run.sh" ]
+CMD [ "/data/run.sh" ]

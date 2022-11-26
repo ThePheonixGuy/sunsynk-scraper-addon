@@ -1,6 +1,6 @@
 name: "Sunsynk Scraper"
 description: "Scrapes the SunSynk / inteless API for data on your solar setup!"
-version: "0.2.1"
+version: "0.2.2"
 slug: "sunsynk-scraper"
 url: "https://github.com/ThePheonixGuy/sunsynk-scraper-addon/tree/main/sunsynk-scraper"
 init: false
@@ -15,12 +15,12 @@ services:
 map:
   - share:rw
 options:
-  mqtt_username: null
+  mqtt_username: "mqtt"
   mqtt_password: null
   mqtt_host: "core-mosquitto"
   mqtt_port: 1883
-  sunsynk_email: "Hello world..."
-  sunsynk_password: "Hello world..."
+  sunsynk_email: null
+  sunsynk_password: null
   debug_logging: false
   update_interval: 60
   battery_discharge_rate: 2.5
