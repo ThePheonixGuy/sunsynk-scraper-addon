@@ -115,8 +115,16 @@ async def main():
 
         delete = False
         data_ingest_service = DataIngestService()
-        mqttClient = await setup_mqtt()
-        logging.info("MQTT setup successful")
+
+        try:
+            mqttClient = await setup_mqtt()
+            logging.info("MQTT setup successful")
+        except Exception as e:
+            logging.error("Could not connect to MQTT, Check your credentials and try again.")
+            if configuration.DEBUG_LOGGING:
+                logging.exception("Fatal exception while connecting to MQTT: ", e, exc_info=True)
+            logging.info("Shutting down, goodbye!")
+            return
 
         sensors = generate_sensors()
 
@@ -137,7 +145,7 @@ async def main():
                 logging.info("Published data to Home Assistant")
                 await asyncio.sleep(config.UPDATE_INTERVAL)
     except Exception as e:
-        logging.error("Error occurred: ", e, exc_info=True)
+        logging.exception(e, exc_info=configuration.DEBUG_LOGGING)
     finally:
         logging.info("Shutting down due to an error")
 
