@@ -167,8 +167,14 @@ class RuntimeSensor(Sensor):
         charging = True if data['toBat'] else False
 
         if not charging and abs(batt_load) > 75:
-            runtime = (soc - 15) / ((abs(batt_load) /100)  * configuration.BATTERY_DISCHARGE_RATE)
+            batt_load_rate = abs(batt_load) / 100
+            batt_load_rate = 1 if batt_load_rate == 0 else batt_load_rate
+
+            runtime = (soc - 15) / ((batt_load_rate) * configuration.BATTERY_DISCHARGE_RATE)
         else:
-            runtime = (soc - 15) / ((abs(house_load) /100)  * configuration.BATTERY_DISCHARGE_RATE)
+            house_load_rate = abs(house_load) / 100
+            house_load_rate = 1 if house_load_rate == 0 else house_load_rate
+
+            runtime = (soc - 15) / ((house_load_rate) * configuration.BATTERY_DISCHARGE_RATE)
 
         return runtime
