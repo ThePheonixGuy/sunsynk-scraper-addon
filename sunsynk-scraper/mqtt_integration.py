@@ -29,6 +29,7 @@ async def connect_client():
     port = credentials.mqtt_port
 
     logging.info('MQTT: Connecting to: %s@%s:%d', username, host, port)
+    logging.debug('TRACE MESSAGE, TURN OFF DEBUG MODE FOR SAFETY: %s@%s:%d pass:%s', username, host, port, credentials.mqtt_password)
 
     client = mqtt_client.Client(client_id)
     client.username_pw_set(username, credentials.mqtt_password)

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.5
+
+- Add debug logging for failing to connect to MQTT
+- Fix logger formatting error to allow failures to propogate properly
+
 ## 0.2.0
 
 - Full refactor of structures for MQTT publishing into models
