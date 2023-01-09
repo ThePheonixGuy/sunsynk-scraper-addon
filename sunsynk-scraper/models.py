@@ -1,4 +1,6 @@
 import json
+import logging
+
 import configuration
 import mqtt_integration as mqtt
 
@@ -57,6 +59,7 @@ class Entity():
             return self.key == key
 
     def get_state(self, data):
+        logging.debug("Getting state for " + self.entity_name + " with key " + self.key + " and data " + json.dumps(data))
         return data[self.key]
 
 
