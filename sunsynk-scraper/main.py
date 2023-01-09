@@ -88,6 +88,7 @@ def publish_discovery_messages_v2(mqttClient, sensors):
 
 def publish_state_updates(mqttClient, energy_data, power_data, sensors):
     data = energy_data | power_data
+    logging.debug("Publishing data: " + json.dumps(data))
     for sensor in sensors:
         if isinstance(sensor, list):
             for s in sensor:
