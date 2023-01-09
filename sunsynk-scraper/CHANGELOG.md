@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.8
+
+- Fixes loss of PV data
+
 ## 0.2.6
 
 - Fix divide by zero error when API gives faulty data
