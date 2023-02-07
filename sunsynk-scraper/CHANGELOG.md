@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.10
+
+- Allow insecure mqtt for non-home-assistant installations
+
 ## 0.2.9 
 
 - Debug log until start initi is complete
