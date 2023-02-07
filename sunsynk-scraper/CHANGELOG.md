@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.9 
+
+- Debug log until start initi is complete
+
 ## 0.2.8
 
 - Fixes loss of PV data
