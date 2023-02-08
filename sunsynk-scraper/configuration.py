@@ -10,7 +10,7 @@ def set_values_from_options(options):
     global BATTERY_DISCHARGE_RATE
     global INSECURE_MQTT
 
-    UPDATE_INTERVAL = options['update_interval']
-    DEBUG_LOGGING = options['debug_logging']
-    BATTERY_DISCHARGE_RATE = options['battery_discharge_rate']
-    INSECURE_MQTT = options['insecure_mqtt']
+    UPDATE_INTERVAL = options['update_interval'] if 'update_interval' in options else 60 
+    DEBUG_LOGGING = options['debug_logging'] if 'debug_logging' in options else False
+    BATTERY_DISCHARGE_RATE = options['battery_discharge_rate'] if 'battery_discharge_rate' in options else 2.5
+    INSECURE_MQTT = options['insecure_mqtt'] if 'insecure_mqtt' in options else False
