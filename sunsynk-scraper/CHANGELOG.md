@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.11
+
+- Added default values for non-home-assistant installations
+- Fixed a crash introduced in 0.2.10 affecting home-assistant installations
+
 ## 0.2.10
 
 - Allow insecure mqtt for non-home-assistant installations
