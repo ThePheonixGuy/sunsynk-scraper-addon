@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.12
+
+- Fixed changed spelling in API response
+
 ## 0.2.11
 
 - Added default values for non-home-assistant installations

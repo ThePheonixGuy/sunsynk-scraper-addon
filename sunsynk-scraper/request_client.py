@@ -101,7 +101,7 @@ class DataIngestService():
             "pv": self.get_latest_reading_for_label("PV", energy_data),
             "export": self.get_latest_reading_for_label("Export", energy_data),
             "import": self.get_latest_reading_for_label("Import", energy_data),
-            "discharge": self.get_latest_reading_for_label("Dis Charge", energy_data),
+            "discharge": self.get_latest_reading_for_label("Discharge", energy_data),
             "charge": self.get_latest_reading_for_label("Charge", energy_data)
         }
 
