@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.14
+## 0.2.15
 
 - Added support for Region 2
 
