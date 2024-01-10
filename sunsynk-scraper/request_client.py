@@ -30,7 +30,7 @@ class RequestClient():
             "grant_type": "password",
             "client_id": "csp-web"
         }
-        raw_data = requests.post(endpoints.login_endpoint, json=payload, headers=headers).json()
+        raw_data = requests.post(endpoints.get_login_endpoint(), json=payload, headers=headers).json()
         # Your access token extracted from response
         my_access_token = raw_data["data"]["access_token"]
         return 'Bearer ' + my_access_token
@@ -44,7 +44,7 @@ class RequestClient():
 
     # Get plant id
     def get_plant_id(self):
-        r = requests.get(endpoints.plants_endpoint, headers=self.get_headers_and_token())
+        r = requests.get(endpoints.get_plants_endpoint(), headers=self.get_headers_and_token())
         data_response = r.json()
         plant_id_and_pac = data_response['data']['infos']
         for d in plant_id_and_pac:
