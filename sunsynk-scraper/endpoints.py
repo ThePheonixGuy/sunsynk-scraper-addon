@@ -30,5 +30,5 @@ def get_login_endpoint():
     return login_endpoint
 
 def get_plants_endpoint():
-    plants_endpoint = plants_endpoint_1 if REGION == 1 else plant_endpoint_2
+    plants_endpoint = plants_endpoint_1 if configuration.REGION == 1 else plant_endpoint_2
     return plants_endpoint
