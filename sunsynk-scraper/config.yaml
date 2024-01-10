@@ -1,6 +1,6 @@
 name: "Sunsynk Scraper"
 description: "Scrapes the SunSynk / inteless API for data on your solar setup!"
-version: "0.2.12"
+version: "0.2.13"
 slug: "sunsynk-scraper"
 url: "https://github.com/ThePheonixGuy/sunsynk-scraper-addon/tree/main/sunsynk-scraper"
 init: false
@@ -25,6 +25,7 @@ options:
   update_interval: 60
   battery_discharge_rate: 2.5
   battery_min_state_of_charge: 15
+  region: 2
 schema:
   mqtt_username: str
   mqtt_password: str
@@ -36,4 +37,5 @@ schema:
   update_interval: int(30,300)
   battery_discharge_rate: float(0.1,100)
   battery_min_state_of_charge: int(1,100)
+  region: int(1, 2)
 image: "ghcr.io/thepheonixguy/{arch}-addon-sunsynk-scraper"
