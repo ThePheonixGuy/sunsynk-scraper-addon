@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.15
+
+- Added support for Region 2
+
 ## 0.2.12
 
 - Fixed changed spelling in API response
